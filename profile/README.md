@@ -1,4 +1,4 @@
-# IndxSearch
+# Indx Search System
 
 **Indx** is a free, high-performance, enterprise-ready, embeddable search engine for **.NET**.
 
