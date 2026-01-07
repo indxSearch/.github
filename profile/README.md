@@ -6,6 +6,8 @@ It delivers **the fastest search performance on the market** without requiring s
 
 Indx is designed to drop in and just work — whether you're building a SaaS platform, a high-throughput service, or a lightning-fast local application.
 
+ **[View live demo here](https://www.indx.co)**
+
 ---
 
 ### Get started
