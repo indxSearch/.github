@@ -14,7 +14,7 @@ Indx is designed to drop in and just work — whether you're building a SaaS pla
 
 | Using C# Class Library | Deploying a server |
 |------------------------|-------------------|
-| **Install via NuGet**<br>`dotnet add package IndxSearchLib`<br>[Package details →](https://www.nuget.org/packages/IndxSearch)<br><br>A full enterprise search system in a class library | **Download HTTPS API template**<br>`git clone https://github.com/indxSearch/IndxCloudApi`<br>[View repository →](https://github.com/indxSearch/IndxCloudApi)<br><br>Production-ready with Blazor UI, HTTP API, authentication, and user management. |
+| **Install via NuGet**<br>`dotnet add package IndxSearchLib`<br><br>[Package details →](https://www.nuget.org/packages/IndxSearch)<br><br>A full enterprise search system in a class library | **Download Azure API template**<br>`git clone https://github.com/indxSearch/IndxCloudApi`<br><br>[View repository →](https://github.com/indxSearch/IndxCloudApi)<br><br>Production-ready with Blazor UI, HTTP API, authentication, and user management. |
 
 
 ### What makes Indx different?
