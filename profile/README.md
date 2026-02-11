@@ -12,6 +12,11 @@ Indx is designed to drop in and just work — whether you're building a SaaS pla
 
 ### Get started
 
+🆕 Install the [skill-indx-search](https://github.com/indxSearch/skill-indx-search) for your coding agent
+```bash
+npx skills add indxSearch/skill-indx-search
+```
+
 | Using C# Class Library | Deploying a server |
 |------------------------|-------------------|
 | **Install via NuGet**<br>`dotnet add package IndxSearchLib`<br><br>[Package details →](https://www.nuget.org/packages/IndxSearch)<br><br>A full enterprise search system in a class library | **Download Azure API template**<br>`git clone https://github.com/indxSearch/IndxCloudApi`<br><br>[View repository →](https://github.com/indxSearch/IndxCloudApi)<br><br>Production-ready with Blazor UI, HTTP API, authentication, and user management. |
