@@ -10,12 +10,15 @@ Indx is designed to drop in and just work — whether you're building a SaaS pla
 
 ---
 
-### Get started
+### Teach your coding agent how to use Indx
 
-🆕 Install the [skill-indx-search](https://github.com/indxSearch/skill-indx-search) for your coding agent
+Install the [skill-indx-search](https://github.com/indxSearch/skill-indx-search)
 ```bash
 npx skills add indxSearch/skill-indx-search
 ```
+
+
+## Get started
 
 | Using C# Class Library | Deploying a server |
 |------------------------|-------------------|
