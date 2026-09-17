@@ -1,67 +1,100 @@
 # Indx Search System
 
-**Indx** is a free, high-performance, enterprise-ready, embeddable search engine for **.NET**.
+**Indx** is a high-performance, typo-tolerant search engine for **.NET**. It matches at the character-pattern level rather than through tokenizers and per-language stemmers, so typos, inflections, compound words and messy input are handled without language configuration.
 
-It delivers **the fastest search performance on the market** without requiring servers, clusters, or operational overhead.
+Run it as a server you host, or embed the library directly in your application. No clusters, no analyzers, no operational overhead.
 
-Indx is designed to drop in and just work — whether you're building a SaaS platform, a high-throughput service, or a lightning-fast local application.
-
- **[View live demo here](https://www.indx.co)**
+**[Try the live demo](https://www.indx.co)**
 
 ---
 
+## Run the server
 
-## Get started
-### Teach your coding agent how to use Indx
+[**Indx**](https://github.com/indxSearch/Indx) is a complete, self-hosted search server. Clone it and run:
 
-Install the [skill-indx-search](https://github.com/indxSearch/skill-indx-search) to get your agent up to speed on Indx Seaarch concepts, best practices, and UX patterns for search.
 ```bash
-npx skills add indxSearch/skill-indx-search
+git clone https://github.com/indxSearch/Indx
+cd Indx
+dotnet run
 ```
-Choose a starting point
-| Using C# Class Library | Deploying a server |
-|------------------------|-------------------|
-| **Install via NuGet**<br>`dotnet add package IndxSearchLib`<br><br>[Package details →](https://www.nuget.org/packages/IndxSearch)<br><br>A full enterprise search system in a class library | **Download Azure API template**<br>`git clone https://github.com/indxSearch/Indx`<br><br>[View repository →](https://github.com/indxSearch/Indx)<br><br>Production-ready with Blazor UI, HTTP API, authentication, and user management. |
 
+Open `https://localhost:5001`. The first visit creates your admin account and team, and takes under a minute. Nothing else to configure: SQLite databases are created for you, and email goes to the console until you set up a provider.
 
-### What makes Indx different?
+Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
-- **A fundamentally better matching model**  
-  Indx uses pattern recognition rather than a lexical model. It matches fragments of similar structure, where shape and length influence recognition — enabling robust matching across variations.
+**Ready to deploy on Azure App Service**: zip deploy the published output, turn on WebSockets for the console, and there is nothing else to provision. It runs the same on any host that gives it .NET 10, a persistent disk and a long-lived process, so a VPS, Fly.io, Render or an EC2 instance all work. Search indexes live in memory and the databases are SQLite files on local disk, so it wants one instance with room rather than several small ones.
 
-- **Relevancy ranking**  
-  Indx matches entire strings, allowing it to understand relationships between terms — not just their presence.
+**What you get**
 
-- **Zero-configuration by design**  
-  Indx has no analyzers, schemas, or language-specific tuning. There are no stop words, no stemming rules, and no tokenizer configuration. You index data and search it — that’s it.
+- **Console** for teams, datasets, field configuration, search preview, boost rules and synonyms
+- **HTTP API** with JWT authentication and scoped API keys, documented in Swagger at `/swagger`
+- **MCP server** at `/mcp`, so AI agents can search your data directly
+- **Dynamic data**: insert, update and delete by key or by filter, with the index kept in sync
+- **Zero-downtime rebuilds**: replace a dataset or change its field configuration on a shadow engine while the old one keeps serving
+- **Relevance tools**: boost rules with schedules, facets, coverage, vector and hybrid search
+- **SQLite storage**, so there is no external database to run
 
-Together, this makes Indx less like a traditional search engine and more like a precision instrument for structured, high-performance search.
+Indx Server v2 is part of the v5 release candidate. See the [documentation](https://v5.docs.indx.co).
 
 ---
 
-### Index and search in a few lines of C#
+## Or embed the library
 
-Point Indx at your JSON, mark a few fields as searchable, and run your app.
+The same engine as a C# class library, with no server involved. Point it at your JSON, mark a few fields as searchable, and search.
 
-```C#
+```csharp
 using Indx.Api;
 var engine = new SearchEngine();
 
-// ANALYZE AND INDEX JSON
-FileStream fstream = File.Open("movies.json", FileMode.Open, FileAccess.Read);
-engine.Init(fstream);
+FileStream stream = File.Open("movies.json", FileMode.Open, FileAccess.Read);
+engine.Init(stream);
 
 engine.GetField("title")!.Searchable = true;
 engine.GetField("description")!.Searchable = true;
 
-engine.Load(fstream);
+engine.Load(stream);
 engine.Index();
 
-// SEARCH
 var result = engine.Search(new Query("matrix", 10));
 ```
 
+`IndxSearchLib` on [NuGet](https://www.nuget.org/packages/IndxSearchLib). This snippet compiles unchanged on v4 and v5. The APIs do differ elsewhere, so see the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) if you are upgrading.
+
+---
+
+## What makes Indx different
+
+- **A different matching model**  
+  Fragments of similar structure match, where shape and length influence recognition. There is no tokenizer to tune and no stemmer per language.
+
+- **Relevance across whole strings**  
+  Indx ranks against entire strings, so it weighs how terms relate to one another rather than only whether they are present.
+
+- **Nothing to configure**  
+  No analyzers, no schemas, no stop words, no stemming rules. Index your data and search it.
+
+---
+
+## Documentation and tooling
+
+- **[Documentation](https://docs.indx.co)** for the current release, and **[v5 documentation](https://v5.docs.indx.co)** for the release candidate. Coming from v4, start with the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md).
+
+- **[Agent skill](https://github.com/indxSearch/skill-indx-search)** teaches your coding agent Indx concepts, integration and search UX patterns.
+  ```bash
+  npx skills add indxSearch/skill-indx-search
+  ```
+
+## Repositories
+
+| Repository | What it is |
+|---|---|
+| **[Indx](https://github.com/indxSearch/Indx)** | The search server. Console, HTTP API, MCP, authentication and user management. |
+| **[skill-indx-search](https://github.com/indxSearch/skill-indx-search)** | Agent skill for Indx. |
+| **[indx-react](https://github.com/indxSearch/indx-react)** | React UI kit for building search interfaces: components, tools and types. |
+
+---
+
 ### Learn more
 
-- 🌐 https://indx.co  
-- 📘 https://docs.indx.co
+- https://indx.co
+- https://docs.indx.co
