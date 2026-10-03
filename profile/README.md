@@ -2,7 +2,7 @@
 
 **Indx** is a high-performance, typo-tolerant search engine for **.NET**. It matches at the character-pattern level rather than through tokenizers and per-language stemmers, so typos, inflections, compound words and messy input are handled without language configuration.
 
-Run it as a server you host, or embed the library directly in your application. No clusters, no analyzers, no operational overhead.
+Run it as a server, or embed the library directly in your application. No clusters, no analyzers, no operational overhead.
 
 **[Try the live demo](https://www.indx.co)**
 
@@ -27,6 +27,7 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 **What you get**
 
 - **Console** for teams, datasets, field configuration, search preview, boost rules and synonyms
+- **Statistics** for every dataset: what people search for, which results they choose, and the misspelled searches fuzzy search still answered
 - **HTTP API** with JWT authentication and scoped API keys, documented in Swagger at `/swagger`
 - **MCP server** at `/mcp`, so AI agents can search your data directly
 - **Dynamic data**: insert, update and delete by key or by filter, with the index kept in sync
@@ -34,7 +35,7 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 - **Relevance tools**: boost rules with schedules, facets, coverage, vector and hybrid search
 - **SQLite storage**, so there is no external database to run
 
-Indx Server v2 is part of the v5 release candidate. See the [documentation](https://v5.docs.indx.co).
+Indx Server v2 is in beta, built on the stable IndxSearchLib 5.0. See the [documentation](https://v5.docs.indx.co).
 
 ---
 
@@ -58,7 +59,7 @@ engine.Index();
 var result = engine.Search(new Query("matrix", 10));
 ```
 
-`IndxSearchLib` on [NuGet](https://www.nuget.org/packages/IndxSearchLib). This snippet compiles unchanged on v4 and v5. The APIs do differ elsewhere, so see the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) if you are upgrading.
+`IndxSearchLib` 5.0 on [NuGet](https://www.nuget.org/packages/IndxSearchLib). This snippet compiles unchanged on v4 and v5. The APIs do differ elsewhere, so see the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) if you are upgrading.
 
 ---
 
@@ -77,7 +78,7 @@ var result = engine.Search(new Query("matrix", 10));
 
 ## Documentation and tooling
 
-- **[Documentation](https://docs.indx.co)** for the current release, and **[v5 documentation](https://v5.docs.indx.co)** for the release candidate. Coming from v4, start with the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md).
+- **[Documentation](https://v5.docs.indx.co)** for Indx 5. Still on v4? Its documentation is at [docs.indx.co](https://docs.indx.co), and the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) takes you to v5.
 
 - **[Agent skill](https://github.com/indxSearch/skill-indx-search)** teaches your coding agent Indx concepts, integration and search UX patterns.
   ```bash
@@ -88,7 +89,7 @@ var result = engine.Search(new Query("matrix", 10));
 
 | Repository | What it is |
 |---|---|
-| **[Indx](https://github.com/indxSearch/Indx)** | The search server. Console, HTTP API, MCP, authentication and user management. |
+| **[Indx](https://github.com/indxSearch/Indx)** | The search server. Console, HTTP API, MCP, statistics, authentication and user management. |
 | **[skill-indx-search](https://github.com/indxSearch/skill-indx-search)** | Agent skill for Indx. |
 | **[indx-react](https://github.com/indxSearch/indx-react)** | React UI kit for building search interfaces: components, tools and types. |
 
@@ -97,4 +98,4 @@ var result = engine.Search(new Query("matrix", 10));
 ### Learn more
 
 - https://indx.co
-- https://docs.indx.co
+- https://v5.docs.indx.co
