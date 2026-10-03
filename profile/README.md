@@ -2,7 +2,10 @@
 
 **Indx** is a high-performance, typo-tolerant search engine for **.NET**. It matches at the character-pattern level rather than through tokenizers and per-language stemmers, so typos, inflections, compound words and messy input are handled without language configuration.
 
-Run it as a server, or embed the library directly in your application. No clusters, no analyzers, no operational overhead.
+Run it as a server you host, or embed the library directly in your application. No clusters, no analyzers, no operational overhead.
+
+<img width="1200" height="684" alt="Indx: a film search built with Indx React finding a misspelled title and narrowing by genre and year, then the Indx console with its datasets, field configuration, boost rules, synonyms, search statistics and the server monitor" src="https://github.com/user-attachments/assets/cfd8a2ed-1f29-4f4f-b88c-0131264d59b7" />
+
 
 **[Try the live demo](https://www.indx.co)**
 
