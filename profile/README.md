@@ -84,7 +84,7 @@ var result = engine.Search(new Query("matrix", 10));
 
 ## Documentation and tooling
 
-- **[Documentation](https://v5.docs.indx.co)** for Indx 5. Still on v4? Its documentation is at [docs.indx.co](https://docs.indx.co), and the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) takes you to v5.
+- **[Documentation](https://v5.docs.indx.co)** for Indx 5. Still on v4? Its documentation is at [v4.docs.indx.co](https://v4.docs.indx.co), and the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) takes you to v5.
 
 - **[Agent skill](https://github.com/indxSearch/skill-indx-search)** teaches your coding agent Indx concepts, integration and search UX patterns. The Indx 6 version is on its [`v6` branch](https://github.com/indxSearch/skill-indx-search/tree/v6) while in preview.
   ```bash
