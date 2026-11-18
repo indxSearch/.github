@@ -29,16 +29,17 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 **What you get**
 
-- **Console** for teams, datasets, field configuration, search preview, boost rules and synonyms
-- **Statistics** for every dataset: what people search for, which results they choose, and the misspelled searches fuzzy search still answered
+- **Console** for teams, datasets, field configuration, search preview, boost and bury rules, and synonyms
+- **Records browser** for every dataset, with a scan that reports the records missing a searched field before a visitor finds the gap
+- **Statistics** for every dataset: what people search for, which results they choose, how visits go on from a search, and the misspelled searches Indx still answered
 - **HTTP API** with JWT authentication and scoped API keys, documented in Swagger at `/swagger`
 - **MCP server** at `/mcp`, so AI agents can search your data directly
 - **Dynamic data**: insert, update and delete by key or by filter, with the index kept in sync
 - **Zero-downtime rebuilds**: replace a dataset or change its field configuration on a shadow engine while the old one keeps serving
-- **Relevance tools**: boost rules with schedules, facets, coverage, vector and hybrid search
+- **Relevance tools**: typo tolerance by levels, matching chosen per field, boost and bury rules with schedules, facets, vector and hybrid search
 - **SQLite storage**, so there is no external database to run
 
-Indx Server v2 is in beta, built on the stable IndxSearchLib 5.0. See the [documentation](https://v5.docs.indx.co).
+Indx 2.0 is in beta. Its latest beta runs on Indx 6, the new search core, which is in beta as IndxSearchLib 6.0. See the [changelog](https://github.com/indxSearch/Indx/blob/main/CHANGELOG.md).
 
 ---
 
@@ -64,6 +65,8 @@ var result = engine.Search(new Query("matrix", 10));
 
 `IndxSearchLib` 5.0 on [NuGet](https://www.nuget.org/packages/IndxSearchLib). This snippet compiles unchanged on v4 and v5. The APIs do differ elsewhere, so see the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) if you are upgrading.
 
+**Indx 6 is in beta** as [IndxSearchLib 6.0](https://www.nuget.org/packages/IndxSearchLib/6.0.0-beta1). A field is matched by its words, inside its words, or both (`WordMatching`, `PatternMatching`), with its own typo tolerance. The [v5 to v6 migration guide](https://github.com/indxSearch/skill-indx-search/blob/v6/references/migration-v5-to-v6.md) covers the changes.
+
 ---
 
 ## What makes Indx different
@@ -83,7 +86,7 @@ var result = engine.Search(new Query("matrix", 10));
 
 - **[Documentation](https://v5.docs.indx.co)** for Indx 5. Still on v4? Its documentation is at [docs.indx.co](https://docs.indx.co), and the [migration guide](https://github.com/indxSearch/skill-indx-search/blob/main/references/migration-v4-to-v5.md) takes you to v5.
 
-- **[Agent skill](https://github.com/indxSearch/skill-indx-search)** teaches your coding agent Indx concepts, integration and search UX patterns.
+- **[Agent skill](https://github.com/indxSearch/skill-indx-search)** teaches your coding agent Indx concepts, integration and search UX patterns. The Indx 6 version is on its [`v6` branch](https://github.com/indxSearch/skill-indx-search/tree/v6) while in preview.
   ```bash
   npx skills add indxSearch/skill-indx-search
   ```
@@ -95,6 +98,7 @@ var result = engine.Search(new Query("matrix", 10));
 | **[Indx](https://github.com/indxSearch/Indx)** | The search server. Console, HTTP API, MCP, statistics, authentication and user management. |
 | **[skill-indx-search](https://github.com/indxSearch/skill-indx-search)** | Agent skill for Indx. |
 | **[indx-react](https://github.com/indxSearch/indx-react)** | React UI kit for building search interfaces: components, tools and types. |
+| **[indx-pixl](https://github.com/indxSearch/indx-pixl)** | Pixel icons for React, on the Indx design system. |
 
 ---
 
