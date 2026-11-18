@@ -4,7 +4,7 @@
 
 Run it as a server you host, or embed the library directly in your application. No clusters, no analyzers, no operational overhead.
 
-<img width="1200" height="684" alt="Indx: a film search built with Indx React finding a misspelled title and narrowing by genre and year, then the Indx console with its datasets, field configuration, boost rules, synonyms, search statistics and the server monitor" src="https://github.com/user-attachments/assets/cfd8a2ed-1f29-4f4f-b88c-0131264d59b7" />
+<img width="1200" alt="A tour of the Indx console: the dataset list, status, search statistics and journeys, field configuration, the records browser and its scan report, categories, query parameters, boost rules, synonyms, and the admin views" src="https://github.com/indxSearch/Indx/raw/main/docs/images/tour.gif" />
 
 
 **[Try the live demo](https://www.indx.co)**
